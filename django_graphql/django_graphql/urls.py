@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from graphql_example.views import GetPersonView
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', GetPersonView.as_view())
+    path('graphql/', csrf_exempt(GetPersonView.as_view()))
 ]
